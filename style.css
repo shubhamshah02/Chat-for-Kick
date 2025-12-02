@@ -49,7 +49,23 @@ body {
     height: 70px;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; letter-spacing: -0.5px; }
+/* Logo Styles (New) */
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    text-decoration: none; 
+    letter-spacing: -0.5px; 
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo-img {
+    height: 36px;
+    width: auto;
+    border-radius: 8px; /* Smooth corners like app icon */
+}
+
 .kick-green { color: var(--primary); }
 .twitch-purple { color: var(--accent); }
 
@@ -124,24 +140,30 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
 
 .hero-subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; }
 
+/* FIX: Control the App Store Badge Size */
 .hero-btns {
     display: flex;
 }
 
-.store-badge-link img {
-    height: 50px;
-    width: auto;
+.store-badge-link {
+    display: inline-block;
     transition: transform 0.2s;
 }
-.store-badge-link:hover img {
+
+.store-badge-link img {
+    height: auto;
+    width: 170px; /* Forces reasonable width */
+}
+
+.store-badge-link:hover {
     transform: translateY(-3px);
 }
 
-/* 3D Phone Visual - Adjusted Height for Pro Max */
+/* 3D Phone Visual */
 .hero-visual {
     position: relative;
-    width: 310px; /* Reduced width slightly to maintain ratio */
-    height: 670px; /* Increased height for Pro Max ratio */
+    width: 310px;
+    height: 670px;
     perspective: 1000px;
 }
 
@@ -149,7 +171,7 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
     width: 100%;
     height: 100%;
     background: #000;
-    border-radius: 42px; /* Smoother corner for Pro Max */
+    border-radius: 42px; 
     border: 6px solid #1a1a1a;
     box-shadow: 
         0 0 0 2px #000,
@@ -206,12 +228,11 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
 
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-/* Tech Strip - Logo Fixes */
+/* Tech Strip */
 .tech-strip { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #080808; }
 .strip-label { text-align: center; font-size: 0.75rem; letter-spacing: 2px; color: #444; margin-bottom: 20px; font-weight: 700; }
 .logo-grid { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; }
 
-/* Styles to enforce grayscale by default */
 .logo-item { 
     opacity: 0.5; 
     transition: 0.3s; 
@@ -220,25 +241,23 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
     align-items: center; 
 }
 
-/* Force Grayscale on both SVGs and Images */
 .logo-item img, .logo-item svg { 
     height: 100%; 
     width: auto; 
     max-width: 120px; 
-    filter: grayscale(100%); /* Make images gray */
-    color: #888; /* Make inline SVGs gray */
+    filter: grayscale(100%); 
+    color: #888; 
     fill: currentColor; 
 }
 
-/* Hover effects */
 .logo-item:hover { 
     opacity: 1; 
     filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); 
 }
 
 .logo-item:hover img, .logo-item:hover svg {
-    filter: none; /* Remove grayscale on hover */
-    color: #fff; /* Light up SVGs */
+    filter: none; 
+    color: #fff; 
 }
 
 /* Bento Grid */
