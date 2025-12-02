@@ -77,7 +77,6 @@ body {
     overflow: hidden;
 }
 
-/* Spotlight Effect */
 .spotlight {
     position: absolute;
     top: -200px;
@@ -125,27 +124,24 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
 
 .hero-subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; line-height: 1.6; }
 
-.btn-app-store {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #fff;
-    color: #000;
-    padding: 12px 24px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+.hero-btns {
+    display: flex;
 }
-.btn-app-store:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2); }
-.btn-app-store i { font-size: 1.8rem; }
-.btn-text { display: flex; flex-direction: column; line-height: 1.1; font-size: 0.8rem; }
-.btn-text strong { font-size: 1.1rem; }
 
-/* 3D Phone Visual */
+.store-badge-link img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.2s;
+}
+.store-badge-link:hover img {
+    transform: translateY(-3px);
+}
+
+/* 3D Phone Visual - Adjusted Height for Pro Max */
 .hero-visual {
     position: relative;
-    width: 320px;
-    height: 640px;
+    width: 310px; /* Reduced width slightly to maintain ratio */
+    height: 670px; /* Increased height for Pro Max ratio */
     perspective: 1000px;
 }
 
@@ -153,12 +149,12 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
     width: 100%;
     height: 100%;
     background: #000;
-    border-radius: 48px;
-    border: 6px solid #1a1a1a; /* Dark gray bezel */
+    border-radius: 42px; /* Smoother corner for Pro Max */
+    border: 6px solid #1a1a1a;
     box-shadow: 
-        0 0 0 2px #000, /* Inner bezel edge */
-        0 25px 50px -12px rgba(0, 0, 0, 0.8), /* Deep shadow */
-        0 0 80px rgba(83, 252, 24, 0.1); /* Subtle Glow */
+        0 0 0 2px #000,
+        0 25px 50px -12px rgba(0, 0, 0, 0.8),
+        0 0 80px rgba(83, 252, 24, 0.1);
     position: relative;
     overflow: hidden;
     transform: rotateY(-10deg) rotateX(5deg);
@@ -167,18 +163,17 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
 
 .hero-visual:hover .phone-frame { transform: rotateY(0deg) rotateX(0deg); }
 
-/* This is where your image goes */
 .app-screen {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures screenshot fills frame */
+    object-fit: cover;
     display: block;
 }
 
 .dynamic-island {
     position: absolute;
-    top: 18px; left: 50%; transform: translateX(-50%);
-    width: 100px; height: 28px;
+    top: 14px; left: 50%; transform: translateX(-50%);
+    width: 90px; height: 26px;
     background: #000;
     border-radius: 20px;
     z-index: 10;
@@ -211,13 +206,40 @@ h1 em { font-style: normal; background: linear-gradient(90deg, var(--primary), v
 
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-/* Tech Strip */
+/* Tech Strip - Logo Fixes */
 .tech-strip { padding: 40px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #080808; }
 .strip-label { text-align: center; font-size: 0.75rem; letter-spacing: 2px; color: #444; margin-bottom: 20px; font-weight: 700; }
 .logo-grid { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; }
-.logo-item { opacity: 0.4; transition: 0.3s; height: 30px; display: flex; align-items: center; }
-.logo-item:hover { opacity: 1; filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); }
-.logo-item img, .brand-svg { height: 100%; width: auto; max-width: 120px; fill: currentColor; }
+
+/* Styles to enforce grayscale by default */
+.logo-item { 
+    opacity: 0.5; 
+    transition: 0.3s; 
+    height: 30px; 
+    display: flex; 
+    align-items: center; 
+}
+
+/* Force Grayscale on both SVGs and Images */
+.logo-item img, .logo-item svg { 
+    height: 100%; 
+    width: auto; 
+    max-width: 120px; 
+    filter: grayscale(100%); /* Make images gray */
+    color: #888; /* Make inline SVGs gray */
+    fill: currentColor; 
+}
+
+/* Hover effects */
+.logo-item:hover { 
+    opacity: 1; 
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.2)); 
+}
+
+.logo-item:hover img, .logo-item:hover svg {
+    filter: none; /* Remove grayscale on hover */
+    color: #fff; /* Light up SVGs */
+}
 
 /* Bento Grid */
 .features { padding: 100px 0; }
